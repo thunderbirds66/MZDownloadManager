@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0033951AF541CA8DEFBDEA9CEE9B88A1 /* Pods-MZDownloadManager_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD693D83FBF3BFA0EF832B8C40D655 /* Pods-MZDownloadManager_Tests-dummy.m */; };
 		1C5D0EBA7038757F9A7C9D54D3DC8BC8 /* MZUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CE115C3E85093171224B02743AB02B /* MZUtility.swift */; };
+		2A7B5B342112E7E500076510 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7B5B332112E7E500076510 /* Log.swift */; };
 		3AA499E7043ECC82B1E6537BC5613A69 /* MZDownloadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B82EB34D93A8B0D581D2F8B76C845A5 /* MZDownloadModel.swift */; };
 		3AA599E71E0EF0F82E0161F4E0C42FDE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
 		487385679CDB888C59B04C83265D8267 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */; };
@@ -44,6 +45,7 @@
 		0F111789B7F2AE65A3C77A35E237CE4D /* MZDownloadManager-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MZDownloadManager-umbrella.h"; sourceTree = "<group>"; };
 		192D3DBE9C1A816EE0CDA74432B59CC4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19DD693D83FBF3BFA0EF832B8C40D655 /* Pods-MZDownloadManager_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MZDownloadManager_Tests-dummy.m"; sourceTree = "<group>"; };
+		2A7B5B332112E7E500076510 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		2CFB260814BC8CFD949ED446400D97F8 /* Pods_MZDownloadManager_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MZDownloadManager_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		482BCF1D8CE679CDB1F203AA8D1335E8 /* Pods-MZDownloadManager_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MZDownloadManager_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		4AD6665A668DB3F48F539784D37EBD0F /* Pods-MZDownloadManager_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MZDownloadManager_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				68B113FDD7D48773933DB3668D6BE37A /* MZDownloadManager.swift */,
 				5B82EB34D93A8B0D581D2F8B76C845A5 /* MZDownloadModel.swift */,
 				62CE115C3E85093171224B02743AB02B /* MZUtility.swift */,
+				2A7B5B332112E7E500076510 /* Log.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 			files = (
 				D3E84FE9F2C1D35C585E20188DB82F95 /* MZDownloadManager-dummy.m in Sources */,
 				C930638CB9D6BB7C73247560096EC95D /* MZDownloadManager.swift in Sources */,
+				2A7B5B342112E7E500076510 /* Log.swift in Sources */,
 				3AA499E7043ECC82B1E6537BC5613A69 /* MZDownloadModel.swift in Sources */,
 				1C5D0EBA7038757F9A7C9D54D3DC8BC8 /* MZUtility.swift in Sources */,
 			);
