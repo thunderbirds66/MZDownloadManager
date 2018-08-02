@@ -61,7 +61,7 @@ extension MZDownloadManagerViewController {
         let cellIdentifier : NSString = "MZDownloadingCell"
         let cell : MZDownloadingCell = self.tableView.dequeueReusableCell(withIdentifier: cellIdentifier as String, for: indexPath) as! MZDownloadingCell
         
-        let downloadModel = downloadManager.downloadingArray[indexPath.row]
+        let downloadModel = downloadManager.downloadingArray.get(at: indexPath.row)
         cell.updateCellForRowAtIndexPath(indexPath, downloadModel: downloadModel)
         
         return cell
@@ -76,7 +76,7 @@ extension MZDownloadManagerViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedIndexPath = indexPath
         
-        let downloadModel = downloadManager.downloadingArray[indexPath.row]
+        let downloadModel = downloadManager.downloadingArray.get(at: indexPath.row)
         self.showAppropriateActionController(downloadModel.status)
         
         tableView.deselectRow(at: indexPath, animated: true)
@@ -179,7 +179,7 @@ extension MZDownloadManagerViewController: MZDownloadManagerDelegate {
         tableView.insertRows(at: [indexPath], with: UITableViewRowAnimation.fade)
     }
     
-    func downloadRequestDidPopulatedInterruptedTasks(_ downloadModels: [MZDownloadModel]) {
+    func downloadRequestDidPopulatedInterruptedTasks(_ downloadModels: MZDownloadingArray) {
         tableView.reloadData()
     }
     
