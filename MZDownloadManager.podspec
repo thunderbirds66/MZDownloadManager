@@ -3,7 +3,8 @@ Pod::Spec.new do |s|
   s.name             = "MZDownloadManager"
   s.version          = "3.4.1"
   s.summary          = "NSURLSession based download manager."
-  s.author           = { 'thunderbirds66' => 'thunderbirds6666@gmail.com' }
+  s.author           = { 'thunderbirds66' => 'thunderbirds6666[at]gmail.com' }
+  s.authors          = { 'thunderbirds66' => 'thunderbirds6666[at]gmail.com' }
   s.description      = <<-DESC
                         Download large files even in background, download multiple files, resume interrupted downloads.
                        DESC
