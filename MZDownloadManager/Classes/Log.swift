@@ -10,7 +10,7 @@ import UIKit
 
 public func DBG(_ text: String, _ fileName: String = #file, _ funcName: String = #function, _ lineNumber: Int = #line) {
 	#if DEBUG
-	print("\(Thread.current.description):" + (fileName as NSString).lastPathComponent + ":" + funcName + ":" + String(format: "%d", lineNumber) + ":" + text)
+//	print("\(Thread.current.description):" + (fileName as NSString).lastPathComponent + ":" + funcName + ":" + String(format: "%d", lineNumber) + ":" + text)
 	#endif
 }
 
