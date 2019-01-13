@@ -46,7 +46,30 @@ open class MZDownloadingArray: NSObject {
 		DBG("Unlocked arraySync")
 	}
 
-	open func get(at index: Int) -> MZDownloadModel {
+    open func remove(model modelToRemove: MZDownloadModel) {
+        var model: MZDownloadModel
+        var found: Int = -1
+        DBG("Wait arraySync")
+        arraySync.lock()
+        DBG("Locked arraySync")
+        for index in 0..<self.array.count {
+            model = array[index] as MZDownloadModel
+            guard let task: URLSessionDownloadTask = model.task else {
+                continue
+            }
+            if task.isEqual(modelToRemove.task) {
+                found = index
+                break
+            }
+        }
+        if found != -1 {
+            self.array.remove(at: found)
+        }
+        arraySync.unlock()
+        DBG("Unlocked arraySync")
+    }
+
+    open func get(at index: Int) -> MZDownloadModel {
 		var model: MZDownloadModel
 		DBG("Wait arraySync")
 		arraySync.lock()
@@ -65,4 +88,48 @@ open class MZDownloadingArray: NSObject {
 		arraySync.unlock()
 		DBG("Unlocked arraySync")
 	}
+
+    open func update(_ newModel: MZDownloadModel) {
+        var model: MZDownloadModel
+        var found: Int = -1
+        DBG("Wait arraySync")
+        arraySync.lock()
+        DBG("Locked arraySync")
+        for index in 0..<self.array.count {
+            model = array[index] as MZDownloadModel
+            guard let task: URLSessionDownloadTask = model.task else {
+                continue
+            }
+            if task.isEqual(newModel.task) {
+                found = index
+                break
+            }
+        }
+        if found != -1 {
+            self.array[found] = newModel
+        }
+        arraySync.unlock()
+        DBG("Unlocked arraySync")
+    }
+
+    open func find(_ downloadTask: URLSessionDownloadTask) -> MZDownloadModel? {
+        var model: MZDownloadModel
+        var found: MZDownloadModel?
+        DBG("Wait arraySync")
+        arraySync.lock()
+        DBG("Locked arraySync")
+        for index in 0..<self.array.count {
+            model = array[index] as MZDownloadModel
+            guard let task: URLSessionDownloadTask = model.task else {
+                continue
+            }
+            if task.isEqual(downloadTask) {
+                found = model
+                break
+            }
+        }
+        arraySync.unlock()
+        DBG("Unlocked arraySync")
+        return found
+    }
 }
