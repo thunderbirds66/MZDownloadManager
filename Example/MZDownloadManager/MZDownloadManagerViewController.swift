@@ -174,7 +174,8 @@ extension MZDownloadManagerViewController {
 
 extension MZDownloadManagerViewController: MZDownloadManagerDelegate {
     
-    func downloadRequestStarted(_ downloadModel: MZDownloadModel, index: Int) {
+    func downloadRequestStarted(_ downloadModel: MZDownloadModel) {
+        let index = self.downloadManager.downloadingArray.indexOf(downloadModel)
         let indexPath = IndexPath.init(row: index, section: 0)
         tableView.insertRows(at: [indexPath], with: UITableViewRowAnimation.fade)
     }
@@ -183,20 +184,24 @@ extension MZDownloadManagerViewController: MZDownloadManagerDelegate {
         tableView.reloadData()
     }
     
-    func downloadRequestDidUpdateProgress(_ downloadModel: MZDownloadModel, index: Int) {
+    func downloadRequestDidUpdateProgress(_ downloadModel: MZDownloadModel) {
+        let index = self.downloadManager.downloadingArray.indexOf(downloadModel)
         self.refreshCellForIndex(downloadModel, index: index)
     }
     
-    func downloadRequestDidPaused(_ downloadModel: MZDownloadModel, index: Int) {
+    func downloadRequestDidPaused(_ downloadModel: MZDownloadModel) {
+        let index = self.downloadManager.downloadingArray.indexOf(downloadModel)
         self.refreshCellForIndex(downloadModel, index: index)
     }
     
-    func downloadRequestDidResumed(_ downloadModel: MZDownloadModel, index: Int) {
+    func downloadRequestDidResumed(_ downloadModel: MZDownloadModel) {
+        let index = self.downloadManager.downloadingArray.indexOf(downloadModel)
         self.refreshCellForIndex(downloadModel, index: index)
     }
     
-    func downloadRequestCanceled(_ downloadModel: MZDownloadModel, index: Int) {
-        
+    func downloadRequestCanceled(_ downloadModel: MZDownloadModel) {
+        let index = self.downloadManager.downloadingArray.indexOf(downloadModel)
+
         self.safelyDismissAlertController()
         
         let indexPath = IndexPath.init(row: index, section: 0)
