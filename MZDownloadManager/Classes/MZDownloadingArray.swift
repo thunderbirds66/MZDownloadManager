@@ -132,4 +132,27 @@ open class MZDownloadingArray: NSObject {
         DBG("Unlocked arraySync")
         return found
     }
+
+    open func indexOf(_ modelToFind: MZDownloadModel) -> Int {
+        guard let taskToFind: URLSessionDownloadTask = modelToFind.task else {
+            DBG("task not set")
+            return -1
+        }
+        var model: MZDownloadModel
+        DBG("Wait arraySync")
+        arraySync.lock()
+        DBG("Locked arraySync")
+        for index in 0..<self.array.count {
+            model = array[index] as MZDownloadModel
+            guard let task: URLSessionDownloadTask = model.task else {
+                continue
+            }
+            if task.isEqual(taskToFind) {
+                return index
+            }
+        }
+        arraySync.unlock()
+        DBG("Unlocked arraySync")
+        return -1
+    }
 }
