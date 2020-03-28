@@ -146,23 +146,9 @@ extension MZDownloadManager {
         guard resumeData != nil || resumeData?.count > 0 else {
             return false
         }
-        
-        do {
-            var resumeDictionary : AnyObject!
-            resumeDictionary = try PropertyListSerialization.propertyList(from: resumeData!, options: PropertyListSerialization.MutabilityOptions(), format: nil) as AnyObject
-            var localFilePath = (resumeDictionary?["NSURLSessionResumeInfoLocalPath"] as? String)
-            
-            if localFilePath == nil || localFilePath?.count < 1 {
-                localFilePath = (NSTemporaryDirectory() as String) + (resumeDictionary["NSURLSessionResumeInfoTempFileName"] as! String)
-            }
-            
-            let fileManager : FileManager! = FileManager.default
-            debugPrint("resume data file exists: \(fileManager.fileExists(atPath: localFilePath! as String))")
-            return fileManager.fileExists(atPath: localFilePath! as String)
-        } catch let error as NSError {
-            debugPrint("resume data is nil: \(error)")
-            return false
-        }
+
+        return true
+
     }
 }
 
